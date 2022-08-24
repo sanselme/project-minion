@@ -1,4 +1,6 @@
-# project-minions
+# project-minion
+
+[![Lint Code Base](https://github.com/sanselme/project-minion/actions/workflows/super-linter.yml/badge.svg)](https://github.com/sanselme/project-minion/actions/workflows/super-linter.yml)
 
 ---
 
