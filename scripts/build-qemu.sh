@@ -16,6 +16,7 @@ git checkout "v${QEMU_VERSION}"
 make -j $(nproc)
 
 # move qemu to bin/
+sleep 3
 cp -f "${WORKDIR}/elf2dmp" bin/
 cp -f "${WORKDIR}/qemu-ga" bin/
 cp -f "${WORKDIR}/qemu-edid" bin/
