@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Copyright © 2022 Schubert Anselme <schubert@anselm.es>
 #
