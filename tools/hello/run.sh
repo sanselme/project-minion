@@ -17,19 +17,5 @@
 
 set -eux
 
-# add repo
-brew tap riscv-software-src/riscv
-
-# install packages
-echo "installing packages..."
-brew install \
-  brew install \
-  expat \
-  gawk \
-  gmp \
-  gnu-sed \
-  isl \
-  libmpc \
-  mpfr \
-  riscv-tools riscv-openocd \
-  zlib
+# run
+cmd/minion riscv32 bin/hello none

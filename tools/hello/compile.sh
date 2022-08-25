@@ -17,19 +17,21 @@
 
 set -eux
 
-# add repo
-brew tap riscv-software-src/riscv
+# compile
+risc64-unknown-elf-gcc \
+  -march=rv64 \
+  -mabi=ilp64 \
+  -mcmodel=medany \
+  -fvisibility=hidden \
+  -static \
+  -nostdlib \
+  -nostartfiles \
+  -T "${PWD}/src/demo/hello.ld" \
+  -o "${PWD}/bin/hello" \
+  "${PWD}/src/demo/hello.s"
 
-# install packages
-echo "installing packages..."
-brew install \
-  brew install \
-  expat \
-  gawk \
-  gmp \
-  gnu-sed \
-  isl \
-  libmpc \
-  mpfr \
-  riscv-tools riscv-openocd \
-  zlib
+# convert to hex
+risc64-unknown-elf-objcopy \
+  -O ihex \
+  "${PWD}/bin/hello" \
+  "${PWD}/bin/hello.hex"
