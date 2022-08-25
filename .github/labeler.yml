@@ -18,10 +18,10 @@ helm:
 - deployment/chart/**
 
 # Add 'docs' label to files in docs
-docs:
-- docs/*
-- */docs
-- **/docs
+# docs:
+# - docs/*
+# - */docs
+# - **/docs
 
 # Add 'scripts' label to files in scripts
 scripts:
@@ -35,9 +35,9 @@ tooling:
 - .run/**/*.xml
 
 # Add 'pkg' label to any change within packages
-@pkg:
-- pkg/*
-- pkg/**/*
+# @pkg:
+# - pkg/*
+# - pkg/**/*
 
 # Add 'test' label to any change to *_test.go files
 test:

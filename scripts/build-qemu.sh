@@ -12,7 +12,7 @@ cd "${WORKDIR}""
 
 echo "building qemu..."
 git checkout "v${QEMU_VERSION}"
-./configure --target-list=${QEMU_TARGET_ARCH}
+./configure --target-list="${QEMU_TARGET_ARCH}"
 make -j $(nproc)
 
 # TODO: move qemu to bin/
