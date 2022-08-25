@@ -8,14 +8,19 @@ set -eux
 : "${QEMU_TARGET_ARCH:=riscv64-softmmu}"
 
 # build qemu
-cd "${WORKDIR}""
+cd "${WORKDIR}"
 
 echo "building qemu..."
 git checkout "v${QEMU_VERSION}"
 ./configure --target-list="${QEMU_TARGET_ARCH}"
 make -j $(nproc)
 
-# TODO: move qemu to bin/
+# move qemu to bin/
 cp -f "${WORKDIR}/elf2dmp" bin/
-cp -f ${WORKDIR}/qemu-{ga,edid,nbd,storage-daemon,io,img} bin/
+cp -f "${WORKDIR}/qemu-ga" bin/
+cp -f "${WORKDIR}/qemu-edid" bin/
+cp -f "${WORKDIR}/qemu-nbd" bin/
+cp -f "${WORKDIR}/qemu-storage-daemon" bin/
+cp -f "${WORKDIR}/qemu-io" bin/
+cp -f "${WORKDIR}/qemu-img" bin/
 cp -f "${WORKDIR}/riscv64-softmmu/qemu-system-riscv64" bin/
