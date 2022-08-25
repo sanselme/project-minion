@@ -19,8 +19,8 @@ set -eux
 
 # compile
 risc64-unknown-elf-gcc \
-  -march=rv64 \
-  -mabi=ilp64 \
+  -march=rv32 \
+  -mabi=ilp32 \
   -mcmodel=medany \
   -fvisibility=hidden \
   -static \
@@ -31,7 +31,7 @@ risc64-unknown-elf-gcc \
   "${PWD}/src/demo/hello.s"
 
 # convert to hex
-risc64-unknown-elf-objcopy \
+risc32-unknown-elf-objcopy \
   -O ihex \
   "${PWD}/bin/hello" \
   "${PWD}/bin/hello.hex"
