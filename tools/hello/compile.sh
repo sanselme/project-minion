@@ -17,8 +17,21 @@
 
 set -eux
 
-# clone repositories
-echo "Cloning repositories, if missing..."
+# compile
+risc64-unknown-elf-gcc \
+  -march=rv64 \
+  -mabi=ilp64 \
+  -mcmodel=medany \
+  -fvisibility=hidden \
+  -static \
+  -nostdlib \
+  -nostartfiles \
+  -T "${PWD}/src/demo/hello.ld" \
+  -o "${PWD}/bin/hello" \
+  "${PWD}/src/demo/hello.s"
 
-[ ! -d build/linux ] && git clone https://github.com/torvalds/linux build/linux
-[ ! -d build/busybox ] && git clone https://git.busybox.net/busybox build/busybox
+# convert to hex
+risc64-unknown-elf-objcopy \
+  -O ihex \
+  "${PWD}/bin/hello" \
+  "${PWD}/bin/hello.hex"

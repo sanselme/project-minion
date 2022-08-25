@@ -17,8 +17,5 @@
 
 set -eux
 
-# clone repositories
-echo "Cloning repositories, if missing..."
-
-[ ! -d build/linux ] && git clone https://github.com/torvalds/linux build/linux
-[ ! -d build/busybox ] && git clone https://git.busybox.net/busybox build/busybox
+# run
+cmd/minion riscv32 bin/hello-tinygo none

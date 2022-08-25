@@ -17,14 +17,19 @@
 
 set -eux
 
+# add repo
+brew tap riscv-software-src/riscv
+
 # install packages
 echo "installing packages..."
 brew install \
+  brew install \
+  expat \
   gawk \
-  gnu-sed \
   gmp \
-  mpfr \
-  libmpc \
+  gnu-sed \
   isl \
-  zlib \
-  expat
+  libmpc \
+  mpfr \
+  riscv-tools riscv-openocd \
+  zlib

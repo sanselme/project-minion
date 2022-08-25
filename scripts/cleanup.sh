@@ -21,19 +21,18 @@ set -eux
 echo "cleaning up..."
 
 rm -rf \
-  build/qemu \
   build/linux \
-  build/busybox \
-  build/buildroot
+  build/busybox
 
 brew uninstall \
+  expat \
   gawk \
-  gnu-sed \
   gmp \
-  mpfr \
-  libmpc \
+  gnu-sed \
   isl \
-  zlib \
-  expat
+  libmpc \
+  mpfr \
+  riscv-tools riscv-openocd \
+  zlib
 
 brew cleanup

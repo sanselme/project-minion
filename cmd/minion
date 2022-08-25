@@ -15,10 +15,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-set -eux
+set -ex
 
-# clone repositories
-echo "Cloning repositories, if missing..."
+# TODO: minion
 
-[ ! -d build/linux ] && git clone https://github.com/torvalds/linux build/linux
-[ ! -d build/busybox ] && git clone https://git.busybox.net/busybox build/busybox
+: "${DEVICE_SMP:=1}"
+: "${DEVICE_MEM_MB:=512}"
+
+# firmware
+if [ $3 != "" ]; then
+  FIRMWARE="-bios ${3}"
+fi
+
+# run
+"qemu-system-${1}" \
+  -machine "${DEVICE_BOARD:-virt}" \
+  -smp "${DEVICE_SMP}" \
+  -m "${DEVICE_MEM_MB}M" \
+  ${FIRMWARE} \
+  -kernel "${2}" \
+  -object rng-random,id=rng0,filename=/dev/urandom \
+  -serial mon:stdio \
+  -nographic
