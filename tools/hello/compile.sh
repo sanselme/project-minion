@@ -18,7 +18,7 @@
 set -eux
 
 # compile
-risc64-unknown-elf-gcc \
+risc32-unknown-elf-gcc \
   -march=rv32 \
   -mabi=ilp32 \
   -mcmodel=medany \
