@@ -36,5 +36,4 @@ set -eux
   -drive id=hd0,file=${2} \
   -netdev user,id=net0,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80,hostfwd=tcp::10443-:443 \
   -serial mon:stdio \
-  -serial /dev/ttys4 \
   -nographic
