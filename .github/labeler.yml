@@ -40,5 +40,5 @@ tooling:
 # - pkg/**/*
 
 # Add 'test' label to any change to *_test.go files
-test:
-- *_test.go
+# test:
+# - *_test.go
