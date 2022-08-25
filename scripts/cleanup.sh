@@ -4,7 +4,12 @@ set -eux
 
 # clean up
 echo "cleaning up..."
-rm -rf build/qemu build/linux build/busybox
+
+rm -rf \
+  build/qemu \
+  build/linux \
+  build/busybox \
+  build/buildroot
 
 brew uninstall \
   gawk \
