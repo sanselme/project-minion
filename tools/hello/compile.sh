@@ -18,20 +18,20 @@
 set -eux
 
 # compile
-risc32-unknown-elf-gcc \
-  -march=rv32 \
-  -mabi=ilp32 \
+riscv64-unknown-elf-gcc \
+  -march=rv64g \
+  -mabi=lp64 \
   -mcmodel=medany \
   -fvisibility=hidden \
   -static \
   -nostdlib \
   -nostartfiles \
-  -T "${PWD}/src/demo/hello.ld" \
+  -T "${PWD}/samples/hello/hello.ld" \
   -o "${PWD}/bin/hello" \
-  "${PWD}/src/demo/hello.s"
+  "${PWD}/samples/hello/hello.s"
 
 # convert to hex
-risc32-unknown-elf-objcopy \
+riscv64-unknown-elf-objcopy \
   -O ihex \
   "${PWD}/bin/hello" \
   "${PWD}/bin/hello.hex"

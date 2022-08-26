@@ -18,4 +18,4 @@
 set -eux
 
 # run
-cmd/minion riscv32 bin/hello none
+DEVICE_BOARD=sifive_u DEVICE_SMP=2 cmd/minion riscv64 bin/hello none
