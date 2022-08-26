@@ -15,22 +15,21 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-OUTPUT_ARCH("riscv")
+OUTPUT_ARCH( "riscv" )
 OUTPUT_FORMAT("elf64-littleriscv")
 
-ENTRY(_start)
+ENTRY( _start )
 SECTIONS
 {
-  . = 0x20010000;
-  .text : { *(.text) }
-  .gnu_build_id : { *(.note.gnu.build_id) }
-  .rodata: { *(.rodata) }
-
   . = 0x80000000;
+  .text : { *(.text) }
+  .gnu_build_id : { *(.note.gnu.build-id) }
+
   .data : { *(.data) }
+  .rodata : { *(.rodata) }
   .sdata : { *(.sdata) }
   .debug : { *(.debug) }
-  . += 0x1000;
+  . += 0x8000;
   stack_top = .;
 
   _end = .;

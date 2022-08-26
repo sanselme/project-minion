@@ -17,8 +17,6 @@
 
 set -ex
 
-# TODO: minion
-
 : "${DEVICE_SMP:=1}"
 : "${DEVICE_MEM_MB:=512}"
 
