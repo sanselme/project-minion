@@ -23,7 +23,6 @@ brew tap riscv-software-src/riscv
 # install packages
 echo "installing packages..."
 brew install \
-  brew install \
   expat \
   gawk \
   gmp \
@@ -31,5 +30,6 @@ brew install \
   isl \
   libmpc \
   mpfr \
-  riscv-tools riscv-openocd \
+  riscv-openocd \
+  riscv-tools \
   zlib

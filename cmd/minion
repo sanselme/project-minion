@@ -21,7 +21,7 @@ set -ex
 : "${DEVICE_MEM_MB:=512}"
 
 # firmware
-if [ $3 != "" ]; then
+if [ "${3}" != "" ]; then
   FIRMWARE="-bios ${3}"
 fi
 
