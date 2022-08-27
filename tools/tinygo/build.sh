@@ -20,4 +20,4 @@ set -eux
 : "${TGO_TARGET:=riscv-qemu}"
 
 # build
-tinygo build --target="${TGO_TARGET}" -o ${PWD}/bin/hello-tinygo ${PWD}/samples/tinygo/main.go
+tinygo build --target="${TGO_TARGET}" -o "${PWD}/bin/hello-tinygo" "${PWD}/samples/tinygo/main.go"

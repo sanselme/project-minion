@@ -32,7 +32,8 @@ brew uninstall \
   isl \
   libmpc \
   mpfr \
-  riscv-tools riscv-openocd \
+  riscv-openocd \
+  riscv-tools \
   zlib
 
 brew cleanup
