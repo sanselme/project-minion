@@ -47,7 +47,7 @@ if [ "${DAEMONIZE}" == 1 ]; then
   RUN_MODE="-daemonize -monitor pty"
 else
   echo "running in interactive mode..."
-  RUN_MODE=" -nographic -serial mon:stdio"
+  RUN_MODE="-nographic -serial mon:stdio"
 fi
 
 # run
