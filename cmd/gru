@@ -23,6 +23,8 @@ set -ex
 : "${DEVICE_FIRMWARE:=$PWD/firmware/$1.bin}"
 : "${DEVICE_KERNEL:=$PWD/kernel/$1}"
 
+: "${UUID:=$(uuidgen)}"
+
 # kernel config
 if [ "${5}" != "" ]; then
   KERNEL_CONF="-append ${5}"
@@ -52,6 +54,7 @@ fi
 
 # run
 "qemu-system-${1}" \
+  -uuid "${UUID}" \
   -machine "${DEVICE_BOARD:-virt}" \
   -smp "${DEVICE_SMP}" \
   -m "${DEVICE_MEM_MB}M" \
