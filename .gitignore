@@ -85,3 +85,4 @@ build/
 *.env
 *.img
 *.qcow2
+*.sb

@@ -17,9 +17,9 @@
 
 set -eux
 
-: "${LINUX_VERSION:=v5.4.0}"
+: "${LINUX_VERSION:=5.9}"
 : "${LINUX_ARCH:=riscv}"
-: "${LINUX_CROSS_COMPILE:=riscv64-unknown-linux-gnu-}"
+: "${LINUX_CROSS_COMPILE:=riscv64-unknown-elf-gnu-}"
 
 # build linux
 cd build/linux

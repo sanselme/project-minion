@@ -17,4 +17,5 @@
 
 set -eux
 
-# TODO: build freebsd
+# compress bin/ to squashfs
+mksquashfs "${PWD}/bin/" "${PWD}/data/sd.sb"

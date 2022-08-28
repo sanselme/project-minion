@@ -20,6 +20,8 @@ set -ex
 : "${DEVICE_SMP:=1}"
 : "${DEVICE_MEM_MB:=512}"
 
+: "${UUID:=$(uuidgen)}"
+
 # firmware
 if [ "${3}" != "" ]; then
   FIRMWARE="-bios ${3}"
@@ -27,6 +29,7 @@ fi
 
 # run
 "qemu-system-${1}" \
+  -uuid "${UUID}" \
   -machine "${DEVICE_BOARD:-virt}" \
   -smp "${DEVICE_SMP}" \
   -m "${DEVICE_MEM_MB}M" \
