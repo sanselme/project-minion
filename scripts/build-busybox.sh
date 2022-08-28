@@ -17,7 +17,7 @@
 
 set -ex
 
-: "${CROSS_COMPILE:=riscv64-linux-gnu-}"
+: "${CROSS_COMPILE:=riscv64-unknown-linux-gnu-}"
 
 # build busybox
 cd build/busybox

@@ -18,7 +18,7 @@
 set -eux
 
 : "${LINUX_ARCH:=riscv}"
-: "${LINUX_CROSS_COMPILE:=riscv64-linux-gnu-}"
+: "${LINUX_CROSS_COMPILE:=riscv64-unknown-elf-gnu-}"
 
 # build linux
 cd build/linux
