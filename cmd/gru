@@ -39,7 +39,7 @@ fi
 # data drive
 if [ "${3}" != "" ]; then
   echo "running with data drive..."
-  DEVICE_DATA="-device virtio-blk-device,drive=hd1 -drive id=hd1,file=${3}"
+  DEVICE_DATA="-device virtio-blk-device,drive=hd1 -drive id=hd1,if=none,file=${3}"
 fi
 
 # run mode
@@ -47,6 +47,9 @@ if [ "${DAEMONIZE}" == 1 ]; then
   # TODO: daemonize
   echo "running in daemon mode..."
   RUN_MODE="-daemonize -monitor pty"
+elif [ "${GRAPHIC}" == 1 ]; then
+  echo "running in graphic mode..."
+  RUN_MODE="-device ramfb -serial mon:stdio"
 else
   echo "running in interactive mode..."
   RUN_MODE="-nographic -serial mon:stdio"
@@ -65,7 +68,7 @@ fi
   -device virtio-rng \
   -device virtio-blk-device,drive=hd0 \
   -device virtio-net-device,netdev=net0 \
-  -drive id=hd0,file="${2}" \
+  -drive id=hd0,if=none,file="${2}" \
   ${DEVICE_DATA} \
   -netdev user,id=net0,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80,hostfwd=tcp::10443-:443 \
   ${RUN_MODE}

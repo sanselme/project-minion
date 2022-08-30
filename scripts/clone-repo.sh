@@ -17,8 +17,11 @@
 
 set -eux
 
+: "${LINUX_VERSION:=5.9}"
+: "${BUSYBOX_VERSION:=1_35_0}"
+
 # clone repositories
 echo "Cloning repositories, if missing..."
 
-[ ! -d build/linux ] && git clone https://github.com/torvalds/linux build/linux
-[ ! -d build/busybox ] && git clone https://git.busybox.net/busybox build/busybox
+[ ! -d build/linux ] && git clone https://github.com/torvalds/linux build/linux --single-branch --depth 1 -b "v${LINUX_VERSION}"
+[ ! -d build/busybox ] && git clone https://git.busybox.net/busybox build/busybox --single-branch --depth 1 -b "${BUSYBOX_VERSION}"
