@@ -15,9 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-set -eux
+set -ex
 
-: "${CROSS_COMPILE:=riscv64-unknown-linux-gnu-}"
+: "${CROSS_COMPILE:=riscv64-linux-gnu-}"
 
 # build busybox
 cd build/busybox

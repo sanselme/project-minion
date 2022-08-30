@@ -17,15 +17,13 @@
 
 set -eux
 
-: "${LINUX_VERSION:=5.9}"
 : "${LINUX_ARCH:=riscv}"
-: "${LINUX_CROSS_COMPILE:=riscv64-unknown-elf-gnu-}"
+: "${LINUX_CROSS_COMPILE:=riscv64-linux-gnu-}"
 
 # build linux
 cd build/linux
 
 echo "building linux..."
-git checkout "v${LINUX_VERSION}"
 make ARCH="${LINUX_ARCH}" CROSS_COMPILE="${LINUX_CROSS_COMPILE}" defconfig
 
 # compile kernel
