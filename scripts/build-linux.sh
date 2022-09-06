@@ -17,16 +17,17 @@
 
 set -eux
 
-: "${LINUX_ARCH:=riscv}"
-: "${LINUX_CROSS_COMPILE:=riscv64-unknown-elf-gnu-}"
+: "${ARCH:=riscv}"
+: "${CROSS_COMPILE:=riscv64-linux-gnu-}"
 
 # build linux
 cd build/linux
 
 echo "building linux..."
-make ARCH="${LINUX_ARCH}" CROSS_COMPILE="${LINUX_CROSS_COMPILE}" defconfig
+make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" defconfig
 
 # compile kernel
-make ARCH="${LINUX_ARCH}" CROSS_COMPILE="${LINUX_CROSS_COMPILE}" -j "$(nproc)"
+make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j "$(nproc)"
 
-# TODO: move kernel to kernel/
+# copy kernel to bin/
+cp -f arch/riscv/boot/Image "../bin/linux-${ARCH}"
