@@ -27,6 +27,6 @@ echo "building linux..."
 make ARCH="${LINUX_ARCH}" CROSS_COMPILE="${LINUX_CROSS_COMPILE}" defconfig
 
 # compile kernel
-make ARCH="${LINUX_ARCH}" CROSS_COMPILE="${LINUX_CROSS_COMPILE}" -j $(nproc)
+make ARCH="${LINUX_ARCH}" CROSS_COMPILE="${LINUX_CROSS_COMPILE}" -j "$(nproc)"
 
 # TODO: move kernel to kernel/
