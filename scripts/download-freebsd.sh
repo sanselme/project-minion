@@ -19,7 +19,7 @@ set -eux
 
 : "${FBSD_VERSION:=13.1}"
 
-# TODO: build freebsd
+# TODO: freebsd
 
 # riscv
 curl -sLO \

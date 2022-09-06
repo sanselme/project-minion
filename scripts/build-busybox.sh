@@ -26,4 +26,5 @@ echo "building busybox..."
 CROSS_COMPILE="${CROSS_COMPILE}" make -j defconfig
 CROSS_COMPILE="${CROSS_COMPILE}" make -j "$(nproc)"
 
-# TODO: move busybox to img/
+# move busybox to bin/
+cp -f busybox ../bin/busybox

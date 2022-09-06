@@ -17,19 +17,44 @@
 
 set -eux
 
-# add repo
-brew tap riscv-software-src/riscv
+# FIXME: check linux is ubuntu/debian
+# TODO: add freebsd support
+if [ "${OSTYPE}" == "darwin"* ]; then
+  # add repo
+  brew tap riscv-software-src/riscv
 
-# install packages
-echo "installing packages..."
-brew install \
-  expat \
-  gawk \
-  gmp \
-  gnu-sed \
-  isl \
-  libmpc \
-  mpfr \
-  riscv-openocd \
-  riscv-tools \
-  zlib
+  # install packages
+  echo "installing packages..."
+  brew install \
+    expat \
+    gawk \
+    gmp \
+    gnu-sed \
+    isl \
+    libmpc \
+    mpfr \
+    riscv-openocd \
+    riscv-tools \
+    zlib
+elif [ "${OSTYPE}" == "linux-gnu"* ]; then
+  apt install -y \
+    autoconf \
+    automake \
+    autotools-dev \
+    bc \
+    bison \
+    build-essential \
+    curl \
+    flex \
+    gawk \
+    git \
+    gperf \
+    libexpat-dev \
+    libgmp-dev \
+    libmpc-dev \
+    libmpfr-dev \
+    libtool \
+    patchutils \
+    texinfo \
+    zlib1g-dev
+fi

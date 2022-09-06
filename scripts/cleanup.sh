@@ -17,23 +17,23 @@
 
 set -eux
 
-# clean up
+# FIXME: clean up
 echo "cleaning up..."
 
 rm -rf \
   build/linux \
   build/busybox
 
-brew uninstall \
-  expat \
-  gawk \
-  gmp \
-  gnu-sed \
-  isl \
-  libmpc \
-  mpfr \
-  riscv-openocd \
-  riscv-tools \
-  zlib
+# brew uninstall \
+#   expat \
+#   gawk \
+#   gmp \
+#   gnu-sed \
+#   isl \
+#   libmpc \
+#   mpfr \
+#   riscv-openocd \
+#   riscv-tools \
+#   zlib
 
-brew cleanup
+# brew cleanup
