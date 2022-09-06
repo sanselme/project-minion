@@ -2,6 +2,31 @@
 
 [![Lint Code Base](https://github.com/sanselme/project-minion/actions/workflows/super-linter.yml/badge.svg)](https://github.com/sanselme/project-minion/actions/workflows/super-linter.yml)
 
+## Usage
+
+```bash
+cmd/gru ${ARCH} ${IMAGE}
+
+# examples:
+cmd/gru riscv64 img/ubuntu/ubuntu-22.04-riscv64.qcow2
+cmd/gru riscv64 img/debian/debian-riscv64.qcow2 '' img/debian/inird.qcow2 #with inird
+```
+
+### Baremetal
+
+#### Build
+
+<!-- TODO: Build -->
+
+#### Run
+
+```bash
+cmd/minion ${ARCH} ${BINIMAGE}
+
+# examples:
+cmd/minion riscv64 bin/hello
+```
+
 ---
 
 Copyright © 2022 Schubert Anselme <schubert@anselm.es>
