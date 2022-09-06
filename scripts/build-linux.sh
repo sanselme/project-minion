@@ -29,5 +29,5 @@ make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" defconfig
 # compile kernel
 make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j "$(nproc)"
 
-# copy kernel to img/
-cp -f arch/riscv/boot/Image "../img/linux-${ARCH}"
+# copy kernel to kernel/
+cp -f arch/riscv/boot/Image "../kernel/linux-${ARCH}"
