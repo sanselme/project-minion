@@ -53,6 +53,8 @@ set -eux
 #     libgmp-dev \
 #     libmpc-dev \
 #     libmpfr-dev \
+#     libncurses-dev \
+#     libssl-dev \
 #     libtool \
 #     patchutils \
 #     texinfo \

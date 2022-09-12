@@ -24,9 +24,7 @@ set -eux
 cd build/linux
 
 echo "building linux..."
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" defconfig
-
-# compile kernel
+make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j defconfig
 make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j "$(nproc)"
 
 # copy kernel to kernel/

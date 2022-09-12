@@ -79,8 +79,20 @@ gen
 
 # Project Builder files
 bin/
-build/
+
+build/*
+!build/README.md
 !build/package/
+!build/cicd/
+
+firmware/*
+!firmware/README.md
+
+img/*
+!img/README.md
+
+kernel/*
+!kernel/README.md
 
 *.env
 *.img

@@ -17,4 +17,14 @@
 
 set -eux
 
-# TODO: build u-boot
+: "${CROSS_COMPILE:=riscv64-linux-gnu-}"
+
+# build uboot
+cd build/uboot
+
+echo "building uboot..."
+CROSS_COMPILE="${CROSS_COMPILE}" make -j qemu-riscv64_defconfig
+CROSS_COMPILE="${CROSS_COMPILE}" make -j "$(nproc)"
+
+# copy uboot to firmware/
+cp -f u-boot.bin "../firmware/uboot-riscv64.bin"
