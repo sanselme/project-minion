@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright © 2022 Schubert Anselme <schubert@anselm.es>
 #
@@ -27,19 +27,19 @@ set -ex
 
 # kernel config
 if [ "${5}" != "" ]; then
-  KERNEL_CONF="-append ${5}"
+  KERNEL_CONF=(-append "${5}")
 fi
 
 # initrd
 if [ "${4}" != "" ]; then
   echo "running with initrd..."
-  DEVICE_INITRD="-initrd ${4}"
+  DEVICE_INITRD=(-initrd "${4}")
 fi
 
 # data drive
 if [ "${3}" != "" ]; then
   echo "running with data drive..."
-  DEVICE_DATA="-device virtio-blk-device,drive=hd1 -drive id=hd1,if=none,file=${3}"
+  DEVICE_DATA=(-device virtio-blk-device,drive=hd1 -drive id=hd1,if=none,file="${3}")
 fi
 
 # run mode
@@ -63,12 +63,12 @@ fi
   -m "${DEVICE_MEM_MB}M" \
   -bios "${DEVICE_FIRMWARE}" \
   -kernel "${DEVICE_KERNEL}" \
-  ${DEVICE_INITRD} \
-  ${KERNEL_CONF} \
+  "${DEVICE_INITRD[@]}" \
+  "${KERNEL_CONF[@]}" \
   -device virtio-rng \
   -device virtio-blk-device,drive=hd0 \
   -device virtio-net-device,netdev=net0 \
   -drive id=hd0,if=none,file="${2}" \
-  ${DEVICE_DATA} \
+  "${DEVICE_DATA[@]}" \
   -netdev user,id=net0,hostfwd=tcp::10022-:22,hostfwd=tcp::10080-:80,hostfwd=tcp::10443-:443 \
   ${RUN_MODE}

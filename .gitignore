@@ -78,9 +78,22 @@ gen
 .vscode
 
 # Project Builder files
-bin/
-build/
+bin/*
+!bin/.gitkeep
+
+build/*
+!build/README.md
 !build/package/
+!build/cicd/
+
+firmware/*
+!firmware/README.md
+
+img/*
+!img/README.md
+
+kernel/*
+!kernel/README.md
 
 *.env
 *.img
