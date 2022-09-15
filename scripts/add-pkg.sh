@@ -18,7 +18,6 @@
 set -eux
 
 # FIXME: check linux is ubuntu/debian
-# TODO: add freebsd support
 # if [ "${OSTYPE}" == "darwin*" ]; then
 #   # add repo
 #   brew tap riscv-software-src/riscv
