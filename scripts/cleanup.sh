@@ -21,19 +21,9 @@ set -eux
 echo "cleaning up..."
 
 rm -rf \
+  build/uboot \
+  build/opensbi \
   build/linux \
   build/busybox
 
-# brew uninstall \
-#   expat \
-#   gawk \
-#   gmp \
-#   gnu-sed \
-#   isl \
-#   libmpc \
-#   mpfr \
-#   riscv-openocd \
-#   riscv-tools \
-#   zlib
-
-# brew cleanup
+# TODO: optionally remove packages
