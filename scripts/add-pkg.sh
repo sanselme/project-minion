@@ -45,6 +45,7 @@ set -eux
 #     bison \
 #     build-essential \
 #     curl \
+#     device-tree-compiler \
 #     flex \
 #     gawk \
 #     git \
