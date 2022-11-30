@@ -17,4 +17,27 @@
 
 set -eux
 
-# TODO: upload to artifactory
+apt install -y \
+  autoconf \
+  automake \
+  autotools-dev \
+  bc \
+  bison \
+  build-essential \
+  curl \
+  device-tree-compiler \
+  flex \
+  gawk \
+  git \
+  gperf \
+  libexpat-dev \
+  libgmp-dev \
+  libmpc-dev \
+  libmpfr-dev \
+  libncurses-dev \
+  libssl-dev \
+  libtool \
+  patchutils \
+  swig \
+  texinfo \
+  zlib1g-dev

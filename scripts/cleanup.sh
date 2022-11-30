@@ -18,8 +18,6 @@
 set -eux
 
 # FIXME: clean up
-echo "cleaning up..."
-
 rm -rf \
   build/uboot \
   build/opensbi \

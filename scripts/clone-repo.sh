@@ -17,15 +17,13 @@
 
 set -eux
 
-: "${UBOOT_VERSION:=2022.10-rc4}"
+: "${UBOOT_VERSION:=2022.07}"
 : "${LINUX_VERSION:=5.9}"
 : "${BUSYBOX_VERSION:=1_35_0}"
 : "${OPENSBI_VERSION:=1.1}"
 
 # clone repositories
-echo "Cloning repositories, if missing..."
-
-[ ! -d build/u-boot ] && git clone https://github.com/u-boot/u-boot --single-branch --depth 1 -b "v${UBOOT_VERSION}"
+[ ! -d build/uboot ] && git clone https://github.com/u-boot/u-boot build/uboot --single-branch --depth 1 -b "v${UBOOT_VERSION}"
 [ ! -d build/opensbi ] && git clone https://github.com/riscv-software-src/opensbi build/opensbi --single-branch --depth 1 -b "v${OPENSBI_VERSION}"
 [ ! -d build/linux ] && git clone https://github.com/torvalds/linux build/linux --single-branch --depth 1 -b "v${LINUX_VERSION}"
 [ ! -d build/busybox ] && git clone https://git.busybox.net/busybox build/busybox --single-branch --depth 1 -b "${BUSYBOX_VERSION}"

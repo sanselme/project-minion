@@ -17,14 +17,18 @@
 
 set -eux
 
-: "${ARCH:=riscv}"
-: "${CROSS_COMPILE:=riscv64-linux-gnu-}"
+# add repo
+brew tap riscv-software-src/riscv
 
-# build linux
-cd build/linux
-
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j defconfig
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j "$(nproc)"
-
-# copy kernel to kernel/
-cp -f arch/riscv/boot/Image "../kernel/linux-${ARCH}"
+# install packages
+brew install \
+  expat \
+  gawk \
+  gmp \
+  gnu-sed \
+  isl \
+  libmpc \
+  mpfr \
+  riscv-openocd \
+  riscv-tools \
+  zlib
