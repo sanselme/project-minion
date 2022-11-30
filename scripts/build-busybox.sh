@@ -22,7 +22,6 @@ set -ex
 # build busybox
 cd build/busybox
 
-echo "building busybox..."
 CROSS_COMPILE="${CROSS_COMPILE}" LDFLAGS=--static make -j defconfig
 CROSS_COMPILE="${CROSS_COMPILE}" LDFLAGS=--static make -j "$(nproc)"
 

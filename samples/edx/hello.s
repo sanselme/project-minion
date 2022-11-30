@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Copyright © 2022 Schubert Anselme <schubert@anselm.es>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,16 +13,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-set -eux
+.global _start
 
-: "${ARCH:=riscv}"
-: "${CROSS_COMPILE:=riscv64-linux-gnu-}"
+_start:
+  addi  a0, x0, 1
+  la    a1, helloworld
+  addi  a2, x0, 13
+  addi  a7, x0, 64
+  ecall
 
-# build linux
-cd build/linux
+  addi  a0, x0, 0
+  addi  a7, x0, 93
+  ecall
 
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j defconfig
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j "$(nproc)"
-
-# copy kernel to kernel/
-cp -f arch/riscv/boot/Image "../kernel/linux-${ARCH}"
+.data
+helloworld:
+  .ascii "Hello, world!\n"

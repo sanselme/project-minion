@@ -17,14 +17,12 @@
 
 set -eux
 
-: "${ARCH:=riscv}"
 : "${CROSS_COMPILE:=riscv64-linux-gnu-}"
 
-# build linux
-cd build/linux
+# build opensbi
+cd build/opensbi
 
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j defconfig
-make ARCH="${ARCH}" CROSS_COMPILE="${CROSS_COMPILE}" -j "$(nproc)"
+CROSS_COMPILE="${CROSS_COMPILE}" make PLATFORM=generic -j "$(nproc)"
 
-# copy kernel to kernel/
-cp -f arch/riscv/boot/Image "../kernel/linux-${ARCH}"
+# copy opensbi to firmware/
+cp -f build/opensbi/build/platform/generic/firmware/fw_dynamic.bin "../firmware/opensbi-riscv64.bin"

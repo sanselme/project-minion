@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Emulate" type="tinyGoConfigurationId" factoryName="tinyGoFactoryIdrun">
+    <module name="gophergba" />
+    <working_directory value="$PROJECT_DIR$" />
+    <tinygo_main_file value="$PROJECT_DIR$" />
+    <tinygo_cmd_options value="" />
+    <tinygo_main_file value="$PROJECT_DIR$" />
+    <tinygo_output_path value="" />
+    <method v="2" />
+  </configuration>
+</component>
